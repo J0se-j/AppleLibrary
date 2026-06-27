@@ -1,14 +1,11 @@
 local AppleUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/J0se-j/AppleLibrary/refs/heads/main/main.lua"))()
 
-local Window = AppleUi:init("Test", false, nil, false, "purple")
+-- Usage: init(Title, SplashEnabled, Keybind, DeletePrevious, ThemeColor)
+local Window = AppleUi:init("My Modern Hub", true, Enum.KeyCode.RightControl, true, "purple")
 
-local Main = Window:Section("Main")
-Main:Select()
+local MainSection = Window:Section("Main")
+MainSection:Select()
 
-Main:Button("Click me", function()
-    print("works")
-end)
-
-Main:Toggle("Test toggle", false, function(v)
-    print(v)
+MainSection:Button("Click Me", function()
+    print("Button clicked!")
 end)
