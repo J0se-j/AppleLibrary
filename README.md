@@ -1,18 +1,18 @@
 # Apple Library
-UI Library in the style of Apple's MacOS and iPadOS
+UI Library in the style of Apple's MacOS and iPadOS.
+**Now updated with Mobile Touch Support, Theme Customization, and an Apple UI Toggle Button!**
 
 ## Software requirements
-Requires a Roblox utility with `gethui()` or `syn.protect_gui` function. Tested on KRNL and Script-Ware.
-
+Requires a modern Roblox executor supporting `gethui()` or standard access to `game.CoreGui`.
 
 ## How to use?
-- Load the UI Library from GitHub repository.
+- Load the UI Library from the GitHub repository.
 ```lua
-local library = loadstring(game:HttpGet("https://github.com/GoHamza/AppleLibrary/blob/main/main.lua?raw=true"))()
+local AppleUi = loadstring(game:HttpGet("[https://raw.githubusercontent.com/J0se-j/AppleLibrary/refs/heads/main/main.lua](https://raw.githubusercontent.com/J0se-j/AppleLibrary/refs/heads/main/main.lua)"))()
 ```
 - Create a window.
 ```lua
-local window = library:init("Titlebar", true, Enum.KeyCode.RightShift, true)
+local window = AppleUi:init("Titlebar", true, Enum.KeyCode.RightShift, true, "purple")
 ```
 - Now you can add menus, elements, dividers, etc.
 - A [template](/example.lua) is given if you want to see how elements, menus, etc are done.
@@ -21,8 +21,10 @@ local window = library:init("Titlebar", true, Enum.KeyCode.RightShift, true)
 ## Creating window
 - Window: It holds everything except temporary notifications.
 ```lua
-local window = library:init(titleText: string, splash: boolean, showHideKeybind: KeyCode, deletePreviousUI: boolean)
+local window = AppleUi:init(titleText: string, splash: boolean, showHideKeybind: KeyCode, deletePreviousUI: boolean, theme: string)
 ```
+*Note: For the `theme` parameter, you can pass `"blue"`, `"purple"`, or `"red"` to change the primary accent color of the UI.*
+
 ## Notifications
 - Temporary Notification: Appears on top-right corner. Has no buttons but has one icon. Deletes after few seconds.
 ```lua
@@ -32,10 +34,11 @@ window:TempNotify(titleText: string, paragraphText: string, icon: string)
 ```lua
 window:Notify(titleText: string, paragraphText: string, button1Text: string, icon: string)
 ```
-- Notification 2 Has two buttons and one icon. Appears over window.
+- Notification 2: Has two buttons and one icon. Appears over window.
 ```lua
 window:Notify2(titleText: string, paragraphText: string, button1Text: string, button2Text: string, icon: string)
 ```
+
 ## Sidebar menus and dividers
 - Section Divider: Simple text label to divide sections in sidebar.
 ```lua
@@ -45,6 +48,7 @@ window:Notify2(titleText: string, paragraphText: string, button1Text: string, bu
 ```lua
 local section = window:Section(text: string)
 ```
+
 ## Section elements
 - Divider: Similar to Section Divider.
 ```lua
@@ -58,23 +62,25 @@ section:Label(text: string)
 ```lua
 section:Button(text: string, callback: function)
 ```
-- Switch: Toggle switch that executes callback with boolean parameter
+- Switch: Toggle switch that executes callback with boolean parameter.
 ```lua
-section:Switch(text: string, callback: function)
+section:Switch(text: string, defaultMode: boolean, callback: function)
 ```
 - Text Field: Textbox which executes callback when it loses focus.
 ```lua
 section:TextField(text: string, placeholderText: string, callback: function)
 ```
-## Miscellanous
-- Toggle Visibility: Hides/Shows window.
+
+## Miscellaneous
+- Toggle Visibility: Hides/Shows window. (Mobile users can also tap the draggable 🍎 button!)
 ```lua
-window:ToggleVisible
+window:ToggleVisible()
 ```
 - Green Button: Sets the callback of the green traffic light button.
 ```lua
 window:GreenButton(callback: function)
 ```
+
 # Apple Library: Images
 
 ![image](https://user-images.githubusercontent.com/82454201/221863896-c92c454a-00a4-4943-9714-532e12d50ee5.png)
@@ -87,4 +93,4 @@ window:GreenButton(callback: function)
 ### Notification 1
 ![image](https://user-images.githubusercontent.com/82454201/221864617-41d6443e-6623-487b-87c0-7502ff1a4ab4.png)
 ### Notification 2
-# Any inquiries? Contact me on Discord: windows cheese chips flavored#3516
+
